@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: my_rabbitmq
+    ports:
+      - "5672:5672"  # стандартный порт AMQP
+      - "15672:15672"  # порт для RabbitMQ Management
+    networks:
+      - my_network
+
+networks:
+  my_network:
