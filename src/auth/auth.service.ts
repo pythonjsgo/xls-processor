@@ -41,7 +41,7 @@ export class AuthService {
 
   async createAccount(data: AuthDTO) {
     if (
-      await this.adminRepository.findOneOrFail({
+      await this.adminRepository.findOne({
         where: {
           username: data.username,
         },

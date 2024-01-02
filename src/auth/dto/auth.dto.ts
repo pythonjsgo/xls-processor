@@ -10,5 +10,4 @@ export class AuthDTO implements AuthInterface {
   @ApiProperty()
   @IsString()
   password: string;
-  email: string;
 }
